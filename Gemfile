@@ -45,3 +45,8 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  #add mysql2
+  gem 'mysql2'
+end
+

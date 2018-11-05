@@ -1,0 +1,13 @@
+<h1>Artigos</h1>
+
+<p>
+<%= @article.titulo %>
+</p>
+
+<p>
+<%= @article.descricao %>
+</p>
+
+<%= link_to "Editar Artigo", edit_article_path(@article) %> |
+
+<%= link_to "Voltar", articles_path %>

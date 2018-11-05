@@ -1,0 +1,30 @@
+<h1>Página de Arigos</h1>
+
+<p>
+<%= link_to "Criar Novo Arigo", new_article_path %>
+</p>
+
+<table>
+
+<tr>
+
+<th>Titulo</th>
+
+<th>Descricao</th>
+
+</tr>
+
+<% @articles.each do |article| %>
+
+    <tr>
+    
+        <td><%= article.titulo %></td>
+        <td><%= article.descricao %></td>
+        <td><%= link_to 'Editar', edit_article_path(article) %></td>
+        <td><%= link_to 'Mostrar', article_path(article) %></td>
+        
+    </tr>
+
+<% end %>
+
+</table>
