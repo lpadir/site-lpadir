@@ -1,13 +1,21 @@
-<h1>Artigos</h1>
+<h2 align="center"><%= @article.titulo %></h2>
 
-<p>
-<%= @article.titulo %>
-</p>
+<div class="well col-xs-8 col-xs-offset-2">
+    
+        <%= simple_format(@article.descricao) %>
+    
+    <div class="article-actions">
+    
+        <%= link_to "Editar", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
+        
+        <%= link_to "Excluir", article_path(@article), method: :delete,
+        
+        data: { confirm: "Você tem certeza que deseja deletar esse artigo?"},
+        
+        class: "btn btn-xs btn-danger" %>
+        
+        <%= link_to "Voltar", articles_path, class: "btn btn-xs btn-success" %>
+    
+    </div>
 
-<p>
-<%= @article.descricao %>
-</p>
-
-<%= link_to "Editar Artigo", edit_article_path(@article) %> |
-
-<%= link_to "Voltar", articles_path %>
+</div>
