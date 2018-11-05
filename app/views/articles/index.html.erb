@@ -22,6 +22,7 @@
         <td><%= article.descricao %></td>
         <td><%= link_to 'Editar', edit_article_path(article) %></td>
         <td><%= link_to 'Mostrar', article_path(article) %></td>
+        <td><%= link_to 'Excluir', article_path(article), method: :delete, data: {confirm: "Tem certeza que deseja excluir o artigo?"} %></td>
         
     </tr>
 

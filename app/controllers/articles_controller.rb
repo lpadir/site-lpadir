@@ -37,6 +37,15 @@ class ArticlesController < ApplicationController
         @articles = Article.all
     end
     
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+        
+        flash[:danger] = "Artigo deletado com sucesso!"
+        
+        redirect_to articles_path
+    end
+    
     private
     def article_params
         params.require(:article).permit(:titulo, :descricao)

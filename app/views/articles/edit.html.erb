@@ -1,33 +1,3 @@
 <h1>Edição de Artigo</h1>
 
-<% if @article.errors.any? %>
-
-<h2>Não foi possível editar o artigo devido aos seguintes erros:</h2>
-
-    <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-        <% end %>
-    </ul>
-    
-<% end %>
-
-<%= form_for @article do |f| %>
-    
-    <p>
-    <%= f.label :titulo %><br/>
-    
-    <%= f.text_field :titulo %>
-    </p>
-    
-    <p>
-    <%= f.label :descricao %><br/>
-    
-    <%= f.text_area :descricao %>
-    </p>
-    
-    <p>
-    <%= f.submit %>
-    </p>
-
-<% end %>
+<%= render 'forms' %>
