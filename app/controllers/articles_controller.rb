@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
     
     def create
         @article = Article.new(article_params)
+        @article.usuario = Usuario.first
         
         if @article.save
             flash[:success] = "Artigo criado com sucesso!"

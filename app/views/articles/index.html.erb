@@ -16,6 +16,16 @@
                     <%= truncate(article.descricao, length: 100) %>
                 </div>
                 
+                <div class="article-meta-details">
+
+                <small>Criado por: <%= article.usuario.username if article.usuario%>,
+                
+                <%= time_ago_in_words(article.created_at) %> atrás,
+                
+                última modificação: <%= time_ago_in_words(article.updated_at) %> atrás.</small>
+                
+                </div>
+                
                 <div class="article-actions">
                 
                     <%= link_to "Editar", edit_article_path(article), class: "btn btn-xs btn-primary" %>
