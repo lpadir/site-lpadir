@@ -1,11 +1,18 @@
-<h1 align="center"><%= @usuario.username %></h1>
-
-<h4 align="center">Artigos do usuário <%= @usuario.username %></h4>
-
-<div class="center">
-    <%= will_paginate @usuario_articles %>
-</div>
-<%= render 'articles/article', obj: @usuario.articles %>
-<div class="center">
-    <%= will_paginate @usuario_articles %>
-</div>
+<% if @usuario.articles.count < 1%>
+    <h3 align = "center"><%= @usuario.username %>, você não possui nenhum artigo para edição.</h3>
+    <h4 align = "center">Crie agora mesmo seu primeiro artigo <%= link_to "clicando aqui", new_article_path %>!</h4>
+<% else %>
+    
+    <h1 align="center"><%= @usuario.username %></h1>
+    
+    <h4 align="center">Artigos do usuário <%= @usuario.username %></h4>
+    
+    <div class="center">
+        <%= will_paginate @usuario_articles %>
+    </div>
+    <%= render 'articles/article', obj: @usuario.articles %>
+    <div class="center">
+        <%= will_paginate @usuario_articles %>
+    </div>
+    
+<% end %>

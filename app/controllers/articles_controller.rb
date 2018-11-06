@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     
     def create
         @article = Article.new(article_params)
-        @article.usuario = Usuario.first
+        @article.usuario = current_user
         
         if @article.save
             flash[:success] = "Artigo criado com sucesso!"
@@ -57,5 +57,15 @@ class ArticlesController < ApplicationController
     
     def article_params
         params.require(:article).permit(:titulo, :descricao)
+    end
+    
+    def require_same_user
+
+        if current_user != @article.usuario and !current_user.admin?
+        
+            flash[:danger] = "You can only edit or delete your own articles"
+    
+            redirect_to root_path
+        end
     end
 end

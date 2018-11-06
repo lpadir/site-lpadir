@@ -1,7 +1,16 @@
-<div class="center jumbotron">
-    <h1>LPA</h1>
+<% if !logged_in? %>
+    <div class="center jumbotron">
+        <h1>LPA</h1>
+        
     
+    <%= link_to "Cadastro", cadastro_path, class: "btn btn-danger btn-large btn-xlarge" %>
+    
+    </div>
 
-<%= link_to "Cadastro", cadastro_path, class: "btn btn-danger btn-large btn-xlarge" %>
-
-</div>
+<% else %>
+    <div class="center jumbotron_porta">
+        
+    <h2>Porta de Acesso</h1>
+        <%= link_to "Destravar Porta de Entrada", "#", class: "btn btn-danger btn-large btn-xlarge" %>
+    </div>
+<% end %>

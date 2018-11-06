@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         if usuario && usuario.authenticate(params[:session][:password])
             session[:usuario_id] = usuario.id
             flash[:success] = "Bem-vindo #{usuario.username}"
-            redirect_to usuario_path(current_user)
+            redirect_to root_path
         else
             flash[:danger] = "Dados incorretos. Tente novamente!"
             render 'new'
