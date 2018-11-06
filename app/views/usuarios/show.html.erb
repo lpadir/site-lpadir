@@ -3,9 +3,9 @@
 <h4 align="center">Artigos do usuário <%= @usuario.username %></h4>
 
 <div class="center">
-    <%= will_paginate @usuarios_articles %>
+    <%= will_paginate @usuario_articles %>
 </div>
 <%= render 'articles/article', obj: @usuario.articles %>
 <div class="center">
-    <%= will_paginate @usuarios_articles %>
+    <%= will_paginate @usuario_articles %>
 </div>

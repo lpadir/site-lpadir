@@ -2,10 +2,13 @@
 
 <div class="well col-xs-8 col-xs-offset-2">
     
-        <%= simple_format(@article.descricao) %>
+    <%= simple_format(@article.descricao) %>
+    
     
     <div class="article-actions">
-    
+        
+        <% if logged_in? && current_user == @article.usuario %>
+        
         <%= link_to "Editar", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
         
         <%= link_to "Excluir", article_path(@article), method: :delete,
@@ -13,6 +16,8 @@
         data: { confirm: "Você tem certeza que deseja deletar esse artigo?"},
         
         class: "btn btn-xs btn-danger" %>
+        
+        <% end %>
         
         <%= link_to "Voltar", articles_path, class: "btn btn-xs btn-success" %>
     
