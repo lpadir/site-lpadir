@@ -1,5 +1,9 @@
 class UsuariosController < ApplicationController
     
+    def index
+        @usuarios = Usuario.paginate(page:params[:page], per_page: 5)
+    end
+    
     def new
         @usuario = Usuario.new
     end
@@ -30,6 +34,7 @@ class UsuariosController < ApplicationController
     
     def show
         @usuario = Usuario.find(params[:id])
+        @usuario_articles = @usuario.articles.paginate(page: params[:page], per_page: 5)
     end
     
     private
