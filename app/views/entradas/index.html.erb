@@ -1,0 +1,25 @@
+<h1 align="center">Lista de Entradas</h1>
+
+<% @entrada.each do |ent| %>
+    
+    <div class="row">
+    
+        <div class="col-xs-8 col-xs-offset-2">
+        
+            <div class="well well-lg">
+            
+                <div class="article-title">
+                   Usuário: <%= ent.usuario.username %>
+                </div>
+                 
+                <div class="article-title">
+                   Hora: <%= ent.created_at %>
+                </div>
+            
+            </div>
+        
+        </div>
+    
+    </div>
+
+<% end %>

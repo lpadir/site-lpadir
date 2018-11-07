@@ -1,5 +1,6 @@
 class Usuario < ActiveRecord::Base
     has_many :articles, dependent: :destroy
+    has_many :entradas
     
     before_save { self.email = email.downcase }
     
