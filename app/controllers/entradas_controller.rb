@@ -1,6 +1,7 @@
 class EntradasController < ApplicationController
 
-    before_action :require_acesso
+    before_action :require_admin
+    before_action :require_acesso, except: [:index]
     
     def index
         @entrada = Entrada.paginate(page: params[:page], per_page: 10)
