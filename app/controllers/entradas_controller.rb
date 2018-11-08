@@ -9,19 +9,12 @@ class EntradasController < ApplicationController
     
     def new
         @entrada = Entrada.new
-    end
-    
-    def create
-        @entrada = Entrada.new(entrada_params)
         @entrada.usuario = current_user
         @entrada.porta = Porta.find(6)
         
         if @entrada.save
             flash[:success] = "Porta de #{@entrada.porta.comodo} do #{@entrada.porta.local} aberta com sucesso!"
             redirect_to root_path
-            
-        else
-            render 'new'
         end
     end
     
@@ -43,6 +36,17 @@ class EntradasController < ApplicationController
         if logged_in? and !current_user.acesso_lab?
 
             flash[:danger] = "Você não possui acesso a essa porta!"
+            redirect_to root_path
+
+        end
+    end
+    
+    def require_admin
+        
+        if logged_in? and !current_user.admin?
+
+            flash[:danger] = "Somente administradores podem realizar essa ação! 
+            Esse evento sera reportado!"
             redirect_to root_path
 
         end

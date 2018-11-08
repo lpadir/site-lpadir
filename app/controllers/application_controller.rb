@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
   
+  def acesso_usuario
+    @acesso_usuario = @current_user.acesso_lab
+  end
+  
+  def has_access?
+    !!acesso_usuario
+  end
+  
   def require_user
     
     if !logged_in?

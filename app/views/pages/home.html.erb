@@ -8,9 +8,16 @@
     </div>
 
 <% else %>
-    <div class="center jumbotron_porta">
+    <% if current_user.acesso_lab %>
+        <div class="center jumbotron_porta">
+            
+        <h2>Porta de Acesso</h2>
+            <%= link_to "Destravar Porta de Entrada", new_entrada_path, class: "btn btn-danger btn-large btn-xlarge" %>
+        </div>
+    <% else %>
         
-    <h2>Porta de Acesso</h1>
-        <%= link_to "Destravar Porta de Entrada", "#", class: "btn btn-danger btn-large btn-xlarge" %>
-    </div>
+        <h1 align="center">Bem vindo,</h1>
+        <h1 align="center"><%= current_user.username %></h1>
+        <h2 align="center">Você não possui autorização de entrada.</h2>
+    <% end %>
 <% end %>
